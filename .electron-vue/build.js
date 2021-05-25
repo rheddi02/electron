@@ -34,7 +34,7 @@ async function build () {
 
   del.sync(['dist/electron/*', '!.gitkeep'])
 
-  const tasks = ['main', 'renderer']
+  let tasks = ['main', 'renderer']
   const m = new Multispinner(tasks, {
     preText: 'building',
     postText: 'process'
@@ -42,7 +42,7 @@ async function build () {
 
   let results = ''
 
-  const tasks = new Listr(
+  tasks = new Listr(
     [
       {
         title: 'building master process',
